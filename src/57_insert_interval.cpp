@@ -1,7 +1,9 @@
 #include <algorithm>
 #include <vector>
 
-using namespace std;
+using std::lower_bound;
+using std::max;
+using std::vector;
 
 class Solution {
  public:
