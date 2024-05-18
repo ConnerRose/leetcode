@@ -1,25 +1,21 @@
 #include <algorithm>
 #include <vector>
 
-using std::lower_bound;
-using std::max;
-using std::vector;
-
 class Solution {
  public:
-  vector<vector<int>> insert(vector<vector<int>>& intervals,
-                             vector<int>& new_interval) {
+  std::vector<std::vector<int>> insert(std::vector<std::vector<int>>& intervals,
+                                       std::vector<int>& new_interval) {
     // Binary search for insert position
     auto insert_pos =
         lower_bound(intervals.begin(), intervals.end(), new_interval);
     intervals.insert(insert_pos, new_interval);
-    vector<vector<int>> res;
+    std::vector<std::vector<int>> res;
     // Continually merge intervals as we insert into result array
-    for (vector<int>& interval : intervals) {
+    for (std::vector<int>& interval : intervals) {
       if (res.empty() || res.back()[1] < interval[0]) {
         res.push_back(interval);
       } else {
-        res.back()[1] = max(res.back()[1], interval[1]);
+        res.back()[1] = std::max(res.back()[1], interval[1]);
       }
     }
     return res;

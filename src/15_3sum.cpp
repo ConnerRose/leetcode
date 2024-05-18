@@ -1,14 +1,11 @@
 #include <algorithm>
 #include <vector>
 
-using std::sort;
-using std::vector;
-
 class Solution {
  public:
-  vector<vector<int>> threeSum(vector<int>& nums) {
-    vector<vector<int>> res;
-    sort(nums.begin(), nums.end());
+  std::vector<std::vector<int>> threeSum(std::vector<int>& nums) {
+    std::vector<std::vector<int>> res;
+    std::sort(nums.begin(), nums.end());
 
     for (size_t i = 0; i < nums.size(); ++i) {
       int target = -nums[i];
@@ -21,7 +18,7 @@ class Solution {
         } else if (sum > target) {
           --r;
         } else {
-          vector<int> triplet = {nums[i], nums[l], nums[r]};
+          std::vector<int> triplet = {nums[i], nums[l], nums[r]};
           res.push_back(triplet);
           // Left duplicates
           while (l < r && nums[l] == triplet[1]) {

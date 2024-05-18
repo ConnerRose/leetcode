@@ -2,13 +2,9 @@
 #include <utility>
 #include <vector>
 
-using std::pair;
-using std::queue;
-using std::vector;
-
 class Solution1 {
  public:
-  int numIslands(vector<vector<char>>& grid) {
+  int numIslands(std::vector<std::vector<char>>& grid) {
     int m = grid.size();
     int n = grid[0].size();
     int res = 0;
@@ -18,7 +14,7 @@ class Solution1 {
         if (grid[i][j] == '0') {
           continue;
         }
-        queue<pair<int, int>> q;
+        std::queue<std::pair<int, int>> q;
         q.push({i, j});
         ++res;
         while (!q.empty()) {
@@ -41,7 +37,7 @@ class Solution1 {
 
 class Solution2 {
  public:
-  int numIslands(vector<vector<char>>& grid) {
+  int numIslands(std::vector<std::vector<char>>& grid) {
     int res = 0;
     for (int i = 0; i < grid.size(); ++i) {
       for (int j = 0; j < grid[0].size(); ++j) {
@@ -54,7 +50,7 @@ class Solution2 {
     return res;
   }
 
-  void dfs(vector<vector<char>>& grid, int i, int j) {
+  void dfs(std::vector<std::vector<char>>& grid, int i, int j) {
     int m = grid.size();
     int n = grid[0].size();
     if (i < 0 || i >= m || j < 0 || j >= n || grid[i][j] != '1') {

@@ -2,8 +2,6 @@
 #include <climits>
 #include <vector>
 
-using std::vector;
-
 struct TreeNode {
   int val;
   TreeNode* left;
@@ -15,7 +13,8 @@ struct TreeNode {
 };
 
 class Solution {
-  TreeNode* build(vector<int>& preorder, vector<int>& inorder, int stop) {
+  TreeNode* build(std::vector<int>& preorder, std::vector<int>& inorder,
+                  int stop) {
     if (inorder.empty() || inorder.back() == stop) {
       return nullptr;
     }
@@ -28,7 +27,7 @@ class Solution {
   }
 
  public:
-  TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+  TreeNode* buildTree(std::vector<int>& preorder, std::vector<int>& inorder) {
     std::reverse(preorder.begin(), preorder.end());
     std::reverse(inorder.begin(), inorder.end());
     return build(preorder, inorder, INT_MIN);

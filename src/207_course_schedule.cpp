@@ -1,15 +1,14 @@
 #include <vector>
 
-using std::vector;
-
 class Solution {
  public:
-  bool canFinish(int num_courses, vector<vector<int>>& prerequisites) {
-    vector<vector<int>> adj(num_courses);
-    vector<int> deg(num_courses, 0);
-    vector<int> bfs;
+  bool canFinish(int num_courses,
+                 std::vector<std::vector<int>>& prerequisites) {
+    std::vector<std::vector<int>> adj(num_courses);
+    std::vector<int> deg(num_courses, 0);
+    std::vector<int> bfs;
     // Create adjacency list and initialize node indegrees
-    for (const vector<int>& pair : prerequisites) {
+    for (const std::vector<int>& pair : prerequisites) {
       adj[pair[1]].push_back(pair[0]);
       ++deg[pair[0]];
     }

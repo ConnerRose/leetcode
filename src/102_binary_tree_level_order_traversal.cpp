@@ -1,9 +1,6 @@
 #include <queue>
 #include <vector>
 
-using std::queue;
-using std::vector;
-
 struct TreeNode {
   int val;
   TreeNode* left;
@@ -16,16 +13,16 @@ struct TreeNode {
 
 class Solution {
  public:
-  vector<vector<int>> levelOrder(TreeNode* root) {
+  std::vector<std::vector<int>> levelOrder(TreeNode* root) {
     if (root == nullptr) {
       return {};
     }
-    vector<vector<int>> res;
-    queue<TreeNode*> q;
+    std::vector<std::vector<int>> res;
+    std::queue<TreeNode*> q;
     q.push(root);
     while (!q.empty()) {
       size_t level_size = q.size();
-      vector<int> level;
+      std::vector<int> level;
       level.reserve(level_size);
       for (size_t i = 0; i < level_size; ++i) {
         TreeNode* node = q.front();

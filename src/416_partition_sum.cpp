@@ -2,13 +2,9 @@
 #include <numeric>
 #include <vector>
 
-using std::accumulate;
-using std::bitset;
-using std::vector;
-
 class Solution {
  public:
-  bool canPartition(vector<int>& nums) {
+  bool canPartition(std::vector<int>& nums) {
     int sum = accumulate(nums.begin(), nums.end(), 0);
     if (sum % 2 == 1) {
       return false;

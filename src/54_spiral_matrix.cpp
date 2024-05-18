@@ -1,14 +1,12 @@
 #include <vector>
 
-using std::vector;
-
 class Solution {
  public:
-  vector<int> spiralOrder(vector<vector<int>>& matrix) {
+  std::vector<int> spiralOrder(std::vector<std::vector<int>>& matrix) {
     int m = matrix.size(), n = matrix[0].size();
     int top = 0, bottom = m - 1;
     int left = 0, right = n - 1;
-    vector<int> res;
+    std::vector<int> res;
     res.reserve(n * m);
     while (res.size() < n * m) {
       for (int j = left; j <= right && res.size() < n * m; j++) {

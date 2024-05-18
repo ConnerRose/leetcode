@@ -1,20 +1,19 @@
 #include <algorithm>
 #include <vector>
 
-using std::vector;
-
 class Solution {
  public:
-  vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+  std::vector<std::vector<int>> combinationSum(std::vector<int>& candidates,
+                                               int target) {
     std::sort(candidates.begin(), candidates.end());
-    vector<vector<int>> res;
-    vector<int> curr;
+    std::vector<std::vector<int>> res;
+    std::vector<int> curr;
     backtrack(res, curr, candidates, target, 0);
     return res;
   }
 
-  void backtrack(vector<vector<int>>& res, vector<int>& curr,
-                 vector<int>& candidates, int target, int start_idx) {
+  void backtrack(std::vector<std::vector<int>>& res, std::vector<int>& curr,
+                 std::vector<int>& candidates, int target, int start_idx) {
     if (target < 0) {
       return;
     }

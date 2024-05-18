@@ -2,21 +2,17 @@
 #include <string>
 #include <unordered_map>
 
-using std::map;
-using std::string;
-using std::unordered_map;
-
 class TimeMap {
-  unordered_map<string, map<int, string>> map;
+  std::unordered_map<std::string, std::map<int, std::string>> map;
 
  public:
   TimeMap() {}
 
-  void set(string key, string value, int timestamp) {
+  void set(std::string key, std::string value, int timestamp) {
     map[key][timestamp] = value;
   }
 
-  string get(string key, int timestamp) {
+  std::string get(std::string key, int timestamp) {
     if (!map.contains(key)) {
       return "";
     }

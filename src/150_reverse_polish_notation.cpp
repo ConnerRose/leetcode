@@ -4,16 +4,10 @@
 #include <unordered_map>
 #include <vector>
 
-using std::function;
-using std::stack;
-using std::string;
-using std::unordered_map;
-using std::vector;
-
 class Solution {
  public:
-  int evalRPN(vector<string>& tokens) {
-    unordered_map<string, function<int(int, int)>> op = {
+  int evalRPN(std::vector<std::string>& tokens) {
+    std::unordered_map<std::string, std::function<int(int, int)>> op = {
         {"+",
          [](int lhs, int rhs) {
            return lhs + rhs;
@@ -30,7 +24,7 @@ class Solution {
            return lhs / rhs;
          }}};
     std::stack<int> stack;
-    for (string& s : tokens) {
+    for (std::string& s : tokens) {
       if (!op.count(s)) {
         stack.push(stoi(s));
       } else {

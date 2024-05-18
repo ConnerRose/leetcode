@@ -1,10 +1,8 @@
 #include <string>
 
-using std::string;
-
 class Solution {
  public:
-  int myAtoi(string str) {
+  int myAtoi(std::string str) {
     int sign = 1, res = 0, i = 0;
     while (str[i] == ' ') {
       i++;

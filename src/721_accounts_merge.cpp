@@ -3,14 +3,9 @@
 #include <unordered_map>
 #include <vector>
 
-using std::sort;
-using std::string;
-using std::unordered_map;
-using std::vector;
-
 class Solution {
   // Find parent with path compression
-  int find(int parent, vector<int>& parents) {
+  int find(int parent, std::vector<int>& parents) {
     while (parent != parents[parent]) {
       parent = parents[parent];
     }
@@ -18,15 +13,16 @@ class Solution {
   }
 
  public:
-  vector<vector<string>> accountsMerge(vector<vector<string>>& accounts) {
-    vector<int> parents(accounts.size(), 0);
-    unordered_map<string, int> email_to_account;
+  std::vector<std::vector<std::string>> accountsMerge(
+      std::vector<std::vector<std::string>>& accounts) {
+    std::vector<int> parents(accounts.size(), 0);
+    std::unordered_map<std::string, int> email_to_account;
 
     for (int account = 0; account < accounts.size(); ++account) {
       // Every element is initially its own parent
       parents[account] = account;
       for (int j = 1; j < accounts[account].size(); ++j) {
-        const string& email = accounts[account][j];
+        const std::string& email = accounts[account][j];
         auto iter = email_to_account.find(email);
         if (iter != email_to_account.end()) {
           // If we've already encountered this email,
@@ -37,8 +33,8 @@ class Solution {
       }
     }
 
-    unordered_map<int, int> account_to_idx;
-    vector<vector<string>> res;
+    std::unordered_map<int, int> account_to_idx;
+    std::vector<std::vector<std::string>> res;
     for (const auto& [email, account] : email_to_account) {
       int parent = find(account, parents);
       auto iter = account_to_idx.find(parent);
@@ -53,7 +49,7 @@ class Solution {
       res[idx].push_back(email);
     }
 
-    for (vector<string>& emails : res) {
+    for (std::vector<std::string>& emails : res) {
       sort(emails.begin() + 1, emails.end());
     }
 

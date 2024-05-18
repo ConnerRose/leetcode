@@ -1,7 +1,5 @@
 #include <vector>
 
-using std::vector;
-
 struct TreeNode {
   int val;
   TreeNode* left;
@@ -14,13 +12,13 @@ struct TreeNode {
 
 class Solution {
  public:
-  vector<int> rightSideView(TreeNode* root) {
-    vector<int> res;
+  std::vector<int> rightSideView(TreeNode* root) {
+    std::vector<int> res;
     helper(res, root, 0);
     return res;
   }
 
-  void helper(vector<int>& res, TreeNode* node, int level) {
+  void helper(std::vector<int>& res, TreeNode* node, int level) {
     if (node == nullptr) {
       return;
     }
