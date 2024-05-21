@@ -6,13 +6,14 @@
 
 class Solution {
  public:
-  int jobScheduling(std::vector<int>& start_time, std::vector<int>& end_time,
-                    std::vector<int>& profit) {
-    int n = start_time.size();
+  static auto jobScheduling(std::vector<int>& start_time,
+                            std::vector<int>& end_time,
+                            std::vector<int>& profit) -> int {
+    size_t n = start_time.size();
     std::vector<std::tuple<int, int, int>> jobs;
     jobs.reserve(n);
-    for (int i = 0; i < n; ++i) {
-      jobs.push_back({end_time[i], start_time[i], profit[i]});
+    for (size_t i = 0; i < n; ++i) {
+      jobs.emplace_back(end_time[i], start_time[i], profit[i]);
     }
     std::sort(jobs.begin(), jobs.end());
 
