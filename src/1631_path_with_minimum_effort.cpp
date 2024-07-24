@@ -8,7 +8,7 @@ using namespace std;
 
 class Solution {
  public:
-  int minimumEffortPath(vector<vector<int>>& heights) {
+  static int minimumEffortPath(vector<vector<int>>& heights) {
     int n = static_cast<int>(heights.size());
     int m = static_cast<int>(heights[0].size());
     vector<vector<int>> dist(n, vector<int>(m, INT_MAX));
