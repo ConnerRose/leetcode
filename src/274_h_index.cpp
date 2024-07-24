@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <map>
 #include <vector>
 
 using namespace std;
@@ -11,7 +10,7 @@ class Solution {
     sort(citations.begin(), citations.end());
     int res = 0;
     for (int i = 0; i < n; ++i) {
-      res = max(res, min(n - i + 1, citations[i]));
+      res = max(res, min(n - i, citations[i]));
     }
     return res;
   }
